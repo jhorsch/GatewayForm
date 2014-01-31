@@ -15,7 +15,7 @@
       <nav>
           <% if signed_in? %>
             <ul>
-                <li><%= link_to "Hi Jeff", current_user %></li>  |
+                <li><%= link_to current_user.name.capitalize, current_user %></li>  |
                 <li><%= link_to "Sign out", '/logout', method: "delete" %></li>
             </ul>
           <% else %>
