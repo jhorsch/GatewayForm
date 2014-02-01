@@ -1,18 +1,34 @@
-<h1>Login</h1>
+
+
+
+<div class='collect_info_container'>
+
+    <div class='subheader'>
+        <h3>HorschGallery</h3>
+        <!-- p>What's Not To Love About Chicago?</p>
+        <p>So many memories, but so easy to forget.</p> -->
+        <p class='sellpoint'>Hey there, welcome back.</p>
+        <!-- <p>Sign up now to relive your memories of Chicago through photography.</p> -->
 
 
  <%= form_for(:session, url: sessions_path ) do |f| %>
 
 
 
-      <p><%= f.label :email %>
-      <%= f.text_field :email %></p>
+
+      <p><%= f.label :email%>
+      <%= f.text_field :email, placeholder: "Email" %></p>
+
+
+
 
       <p><%= f.label :password %>
-      <%= f.password_field :password %></p>
-
+      <%= f.password_field :password, placeholder: 'Password' %></p>
 
       <p><%= f.submit "Log in", class: "btn btn-large btn-primary" %></p>
     <% end %>
 
-    <p> New To Instagram? <%= link_to 'Sign Up', 'signup' %></p>
+          <p class= 'forget'>Forgot <%= link_to 'password', '#' %>?</p>
+
+
+    <p class='footer'> New To HorschGallery.com?  If you love Chicago and enjoy browsing through beautiful photos then <%= link_to 'JOIN IN', 'signup' %></p>

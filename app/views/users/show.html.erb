@@ -1,7 +1,7 @@
 <header>
       <nav>
           <% if signed_in? %>
-            <ul>
+            <ul class='navbar'>
                 <li><%= link_to current_user.name.capitalize, current_user %></li>  |
                 <li><%= link_to "Sign out", '/logout', method: "delete" %></li>
             </ul>
@@ -11,6 +11,10 @@
       </nav>
   </header>
 
-<h1> Profile Page<h1>
+<div class="userinfo">
 
-<%= @user.name %> | <%= @user.email %></h1>
+<h1> <%= @user.name.capitalize %>'s  Profile Page<h1>
+Email: <%= @user.email %></h1>
+<p class = 'gravatar'><%= gravatar_for @user %></p>
+
+</div>

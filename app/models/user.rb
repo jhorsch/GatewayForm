@@ -1,17 +1,24 @@
 class User < ActiveRecord::Base
 
-     before_save { self.email = email.downcase }
+    before_save { self.email = email.downcase }
     before_create :create_remember_token
 
     before_create :create_remember_token  #before creating a user run remember token method reference
 
 
     validates :name, presence: true, length: {maximum: 50}
+
+
     VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
     validates :email, presence: true, format:{with: VALID_EMAIL_REGEX }, uniqueness: true
 
+
+
     has_secure_password
     validates :password, length:{minimum: 6}
+
+    validates :dob, presence: true
+    validates :user_name, presence: true
 
     def User.new_remember_token
         SecureRandom.urlsafe_base64

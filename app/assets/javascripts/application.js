@@ -19,7 +19,8 @@
 
 
   $(function(){
-    $('.datepicker').datepicker();
+    $('.datepicker').datepicker(
+        {   changeMonth: true, changeYear: true,  minDate: "-70Y", maxDate: "+1D", val: "1/1/11" });
   });
 
 

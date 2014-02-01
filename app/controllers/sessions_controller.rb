@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   def new
-
+    @user = User.new
   end
 
   def create
@@ -9,7 +9,6 @@ class SessionsController < ApplicationController
         sign_in user
         redirect_to user
     else
-        flash.now[:error] = 'Invalid login'   #flash hash
         render 'new'
     end
 
