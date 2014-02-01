@@ -75,13 +75,19 @@ nav{
 .subheader{
     width: 400px;
     margin: 0 auto;
+    border: 1px solid black;
 
     h3{
         font-weight: bold;
         font-size: 30px;
         color: $color_sears;
         width: 100%;
-        border: 1px solid black;
+        margin-bottom: 5px;
+    }
+
+    p{
+        margin-bottom: 10px;
+
     }
 }
 
