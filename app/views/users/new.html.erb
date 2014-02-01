@@ -1,52 +1,60 @@
 <!--
 <%= image_tag 'screenshot3.jpg', class: 'product_img' %>
 <%= image_tag 'instagram-logo.jpg', class: 'logo_img' %> -->
-<header>
-    <h1>Capture and Share the World's moments</h1>
-    <%= link_to 'Log In', '/login' %>
-</header>
+<div class='brand'>
+    <h1>HorschGallery</h1>
+    <p><%= link_to 'Log In', '/login' %></p>
+</div>
 
-<p>Instagram is a fast, beautiful and fun way to share your life with friends and family.
+<div class='collect_info_container'>
 
-Take a picture or video, choose a filter to transform its look and feel, then post to Instagram — it's that easy. You can even share to Facebook, Twitter, Tumblr and more. It's a new way to see the world.
-
-Oh yeah, did we mention it’s free?<p>
-
-
-
-<div class="row">
-  <div class="span6 offset3">
+    <div class= 'subheader'>
+        <h3>Sign Up</h3>
+        <!-- <p>Share and communicate your most memorable moments of living in Chicago with others around the city.</p> -->
+    </div>
 
     <% if @user.errors.any? %>
-  <div id="error_explanation">
-    <div class="alert alert-error">
-      The form contains <%= pluralize(@user.errors.count, "error") %>.
-    </div>
-    <ul>
-    <% @user.errors.full_messages.each do |msg| %>
-      <li>* <%= msg %></li>
+        <div id="error_explanation">
+            <div class="alert alert-error">
+                The form contains <%= pluralize(@user.errors.count, "error") %>.
+            </div>
+            <ul>
+                <% @user.errors.full_messages.each do |msg| %>
+                <li class='alert-row'><%= msg %></li>
+                <% end %>
+            </ul>
+        </div>
     <% end %>
-    </ul>
-  </div>
-<% end %>
-
 
 
     <%= form_for(@user) do |f| %>
 
-      <p><%= f.label :name %>
-      <%= f.text_field :name %></p>
+    <p><%= f.label :name %>
+    <%= f.text_field :name, placeholder: 'Name'  %></p>
 
-      <p><%= f.label :email %>
-      <%= f.text_field :email %></p>
+    <p><%= f.label :email %>
+    <%= f.text_field :email, placeholder: 'Email'  %></p>
 
-      <p><%= f.label :password %>
-      <%= f.password_field :password %></p>
+    <p><%= f.label :user_name, "Username" %>
+    <%= f.text_field :user_name, placeholder: 'Username'  %></p>
 
-      <p><%= f.label :password_confirmation, "Confirmation" %>
-      <%= f.password_field :password_confirmation %></p>
+    <p><%= f.label :dob, 'Birthday'%>
+    <%= f.text_field :dob, :class => "datepicker", placeholder: 'Birthday'  %></p>
 
-      <p><%= f.submit "Create my account", class: "btn btn-large btn-primary" %></p>
+    <p><%= f.label :password %>
+    <%= f.password_field :password, placeholder: 'Password'  %></p>
+
+    <p><%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation, placeholder: 'Password Confirmation'  %></p>
+
+    <p><%= f.submit "Create my account", class: "btn btn-large btn-primary" %></p>
     <% end %>
-  </div>
+
+
+    <p class='footer'>Already have an account?  <%= link_to 'Log in', '/login' %></p>
+
 </div>
+
+
+
+

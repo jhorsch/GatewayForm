@@ -1,0 +1,164 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+
+
+@import "reset";
+
+$button_color:  green;
+$off_white_color: white;
+$color_sears: #2F4377;
+$color_sky: #88B5F8;
+$color_clouds: #F6F6F6;
+$color_red: #BA5372;
+$color_ocean: #388698;
+
+a:link{
+    text-decoration: none;
+}
+
+a:hover{
+    text-decoration: underline;
+}
+
+
+body{
+
+    background: url('4094.jpg') top center no-repeat;
+    background-size: cover;
+    font-family: "gill sans", Helvetica;
+    margin: 30px;
+}
+
+li{
+    display: inline-block;
+}
+
+nav{
+
+    text-align: right;
+}
+
+.alert, .alert-row{
+    color: $color_red;
+    display: block;
+}
+
+.brand{
+
+    width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    border: 1px solid black;
+
+    h1{
+        display: inline-block;
+        border: 1px solid black;
+        width: 500px;
+        font-size: 50px;
+    }
+
+
+}
+
+
+.subheader{
+    width: 400px;
+    margin: 0 auto;
+
+    h3{
+        font-weight: bold;
+        font-size: 30px;
+        color: $color_sears;
+        width: 100%;
+        border: 1px solid black;
+    }
+}
+
+
+
+.footer{
+
+        margin-top: 10px;
+        font-size: 14px;
+}
+
+html{
+    height: 100%;
+}
+
+.collect_info_container{
+
+    background: $color_clouds;
+    width: 400px;
+    margin: auto auto;
+    border-radius: 7px;
+    box-shadow: 1px 1px 2px $color_clouds;
+    text-align: center;
+    padding: 30px;
+
+}
+
+label{
+
+    display: none;
+    text-align: right;
+    width: 100px;
+    line-height: 40px;
+    height: 20px;
+
+}
+
+input[type="text"], input[type="password"]{
+
+    clear: both;
+    height: 40px;
+    width: 300px;
+    padding: 5px;
+    margin-top: 10px;
+    outline: none;
+    font-size: 14px;
+
+    &:focus{
+        border: 2px solid $color_ocean;
+    }
+}
+
+.btn{
+
+    width: 300px;
+    height: 40px;
+    border-radius: 3px;
+    background: none;
+    background: $color_ocean;
+    cursor: pointer;
+
+    font-size: 18px;
+    color: white;
+    border: 1px solid $color_ocean;
+
+    padding: 5px;
+    margin-top: 20px;
+    &:hover{
+        background: #327787;
+    }
+
+}
+
+
+
+
+
+
+
+
