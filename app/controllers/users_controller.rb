@@ -15,11 +15,14 @@ end
 
 def create
    @user = User.new(user_params)
-
+   @user.password_confirmation = @user.password
     if @user.save
         sign_in @user
-        flash[:success] = "Welcome to Mail Chimp!"
+        flash[:success] = "Welcome to HorschGallery!"
+        UserMailer.registration_confirmation(@user).deliver
+
         redirect_to @user
+
      else
       render 'new'
     end
@@ -33,7 +36,7 @@ end
 
  private
     def user_params
-        params.require(:user).permit(:name, :email, :dob, :user_name, :password, :password_confirmation)
+        params.require(:user).permit(:name, :email, :dob, :user_name, :password)
 
     end
 
