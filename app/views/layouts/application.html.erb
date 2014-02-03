@@ -16,14 +16,36 @@
 
     <div class="pagecontainer">
 
-    <% flash.each do |key, value| %>
-        <div class="alert alert-<%= key %>"><%= value %></div>
-      <% end %>
+    <header>
+      <nav>
+          <% if signed_in? %>
+            <ul class='navbar'>
+                <li id='home'><%= link_to 'Home', root_url %></li>  |
+                <li><%= link_to 'My Profile', current_user %></li>  |
+                <li><%= link_to "Log out", '/logout', method: "delete" %></li>
+            </ul>
+          <% else %>
+            <ul class='navbar'>
+                <li><%= link_to "Log in", '/login' %></li>
+            </ul>
+          <% end %>
+      </nav>
+  </header>
+
+  <% flash.each do |key,value| %>
+        <p class='alert-<%= key %>'><%= value %></p>
+  <% end %>
+
 
 
 <%= yield %>
 
 </div>
+
+
+`
+
+
 
 </body>
 </html>

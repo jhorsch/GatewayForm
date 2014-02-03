@@ -5,10 +5,13 @@ GatewayForm::Application.routes.draw do
   root "users#new"
 
   resources :users
-  resources :sessions, only: [:new, :create, :destroy]
+  resources :sessions, only: [:new, :create, :destroy, :show]
+  resources :password_resets
+
   match '/signup',  to: 'users#new',  via: 'get'
   match '/login', to: 'sessions#new', via: 'get'
   match '/logout', to: 'sessions#destroy', via: 'delete'
+  match '/forgot_password', to: 'sessions#show', via: 'get'
 
   # get 'users/new' => 'users#new' , as: '/signup'
 

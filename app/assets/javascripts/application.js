@@ -18,9 +18,65 @@
 
 
 
-  $(function(){
+$(function(){
     $('.datepicker').datepicker(
-        {   changeMonth: true, changeYear: true,  minDate: "-70Y", maxDate: "+1D", val: "1/1/11" });
-  });
+    {   changeMonth: true, changeYear: true,  minDate: "-70Y", maxDate: "+1D", val: "1/1/11" });
+});
+
+
+//plugin not working
+$(function(){
+    $('.datepicker').pickadate();
+});
+
+$(function(){
+    $('#pswd_fld').blur(function(){
+        var password_length = $(this).val().length;
+        if (password_length <= 6)
+        {
+            $(this).addClass('input_fail');
+        }
+        else
+        {
+            $(this).addClass('input_sucess');
+        }
+
+    });
+});
+
+
+
+// $(function(){
+//     $('#sp_checkbox').change(function(){
+
+//         var prev = $(this).prev();
+//         var value = prev.val();
+//         var type = prev.attr('type');
+
+//         var name = prev.attr('name');
+//         var id = prev.attr('id');
+//         var classA = prev.attr('class');
+
+//         var new_type = (type == 'password') ? 'text' : 'password';
+
+//         prev.remove();
+//         $(this).before('<input type="' + new_type + '" value="'  + value + '" name="'  + name + '" id="'  + id + '" class="'  + classA + '" />');
+
+//     });
+
+//     $('.forgot_pass').hide();
+
+//     $('.password').focus(function(){
+//         $('.forgot_pass').toggle();
+//     })
+
+//     //  $('.password').blur(function(){
+//     //     $('.forgot_pass').hide();
+//     // })
+
+// });
+
+
+
 
 

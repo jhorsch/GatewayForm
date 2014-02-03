@@ -1,0 +1,27 @@
+<div class='collect_info_container'>
+
+    <div class='subheader'>
+        <h3>HorschGallery</h3>
+        <p class='sellpoint'>Forgot your password?  No problem.
+        <br>
+        Enter your email and we'll send you a new one.</p>
+    </div>
+
+    <%= form_tag password_resets_path, :method => :post do %>
+
+        <%= text_field_tag :email, params[:email], placeholder: "Email" %>
+
+      <input class="btn btn-large btn-primary" name="commit" type="submit" value="Reset My Password" />
+
+    <% end %>
+
+</div>
+
+
+
+
+
+
+
+
+

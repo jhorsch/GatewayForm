@@ -7,7 +7,6 @@ def index
 end
 
 
-
   def new
     @user = User.new
   end
@@ -15,12 +14,13 @@ end
 
 def create
    @user = User.new(user_params)
+   @user.name = @user.name.titlecase
+   @user.email = @user.email.downcase
    @user.password_confirmation = @user.password
     if @user.save
         sign_in @user
-        flash[:success] = "Welcome to HorschGallery!"
         UserMailer.registration_confirmation(@user).deliver
-
+        flash[:success] = "Are you ready to explore Chicago through photography?  Before you get started, please confirm your account.  An email was just sent."
         redirect_to @user
 
      else

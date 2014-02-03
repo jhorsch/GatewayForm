@@ -1,76 +1,71 @@
-<!--
-<%= image_tag 'screenshot3.jpg', class: 'product_img' %>
-<%= image_tag 'instagram-logo.jpg', class: 'logo_img' %> -->
-
-
 <div class='collect_info_container'>
 
     <div class='subheader'>
         <h3>HorschGallery</h3>
         <!-- p>What's Not To Love About Chicago?</p>
         <p>So many memories, but so easy to forget.</p> -->
-        <p class='sellpoint'>Nothing captures your memories of Chicago like a photo.
-            Browse.&nbsp&nbspDiscuss.&nbsp&nbspShare.&nbsp&nbsp(Maybe even purchase)</p>
+        <p class='sellpoint'>Sign up to discuss & share your favorite memories of Chicago from our 30+ year photography collection.<br><br>
+            We can't wait to show you this spectacular view of the city.</p>
         <!-- <p>Sign up now to relive your memories of Chicago through photography.</p> -->
-
 
 
     <%= form_for(@user) do |f| %>
 
 
-    <span class='alert-row'>
         <% if @user.errors[:name].any? %>
-            Invalid name. Enter first & last name.
-         <% end %>
-    </span>
-
-    <p><%= f.label :name %>
-    <%= f.text_field :name, placeholder: 'Name'  %></p>
-
     <span class='alert-row'>
+            Please enter first & last name
+    </span>
+         <% end %>
+
+
+    <%= f.text_field :name, placeholder: 'Name'  %>
+
         <% if @user.errors[:email].any? %>
-            Invalid email. Please try again.
-         <% end %>
-    </span>
-
-    <p><%= f.label :email %>
-    <%= f.text_field :email, placeholder: 'Email'  %></p>
-
     <span class='alert-row'>
+            That email doesn't look valid
+    </span>
+         <% end %>
+
+
+    <%= f.text_field :email, placeholder: 'Email'  %>
+
         <% if @user.errors[:user_name].any? %>
-            Invalid username. Please try again.
-         <% end %>
-    </span>
-
-    <p><%= f.label :user_name, "Username" %>
-    <%= f.text_field :user_name, placeholder: 'Username'  %></p>
-
     <span class='alert-row'>
+            Sorry, that username is taken
+    </span>
+         <% end %>
+
+
+    <%= f.text_field :user_name, placeholder: 'Username'  %>
+
         <% if @user.errors[:dob].any? %>
-            Please choose a correct date.
-         <% end %>
+    <span class='alert-row'>
+            Please choose a correct date
     </span>
+         <% end %>
 
-    <p><%= f.label :dob, 'Birthday'%>
-    <%= f.text_field :dob, :class => "datepicker", placeholder: 'Birthday'  %></p>
 
-     <span class='alert-row'>
+    <%= f.text_field :dob, :class => "datepicker", placeholder: 'Birthday'  %>
+
         <% if @user.errors[:password].any? %>
-            Make sure your password is more 6 characters.
-         <% end %>
+     <span class='alert-row' >
+            Your password must be more than 6 characters
     </span>
-
-    <p><%= f.label :password %>
-    <%= f.password_field :password, placeholder: 'Password'  %></p>
+         <% end %>
 
 
-    <p><%= f.submit "Sign Up", class: "btn btn-large btn-primary" %></p>
+    <%= f.password_field :password, placeholder: 'Password', id: 'pswd_fld'  %>
+
+    <!--   <p><input id="sp_checkbox" name="sp_checkbox" type="checkbox" value="1"  class="forgot_pass">
+      <label for="sp_checkbox" class="forgot_pass">Show Password</label></p> -->
+<p class='terms'>By clicking Sign Up below, you are agreeing to our <a href="#">Terms and Conditions</a> and <a href="#">Privacy Policy</a></p>
+
+    <p class='show_password'><%= f.submit "Sign Up", class: "btn btn-large btn-primary" %></p>
     <% end %>
 
 
     <p class='footer'>Already have an account?  <%= link_to 'Log in', '/login' %></p>
-
-</div>
 
 
 

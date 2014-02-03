@@ -14,6 +14,7 @@
 
 
 @import "reset";
+@import "library";
 
 $button_color:  green;
 $off_white_color: white;
@@ -22,6 +23,9 @@ $color_sky: #88B5F8;
 $color_clouds: #F6F6F6;
 $color_red: #BA5372;
 $color_ocean: #388698;
+
+$header_font: 'Baskerville Old Face', serif;
+$body_font: 'Adobe Myungjo Std', serif;
 
 a:link{
     text-decoration: none;
@@ -33,6 +37,8 @@ a:hover{
 
 a:visited{
     color: $color_sears;
+    text-decoration: none;
+
 }
 
 
@@ -42,11 +48,13 @@ body{
     background-size: cover;
 
 
+
 }
 
 .pagecontainer{
     width: 75%;
     margin: 0 auto;
+    font-family: $body_font, serif;
 }
 
 html{
@@ -65,17 +73,20 @@ nav{
 }
 
 
-.alert, .alert-row{
+.alert-row{
     color: $color_red;
     display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+    font-weight: bold;
 }
 
 .alert-success{
-    text-align: center;
-    display: block;
-    font-size: 40px;
-    color: $color_ocean;
-    margin-top: 20px;
+    @include flash-alert($color_ocean);
+}
+
+.alert-notice{
+    @include flash-alert($color_red);
 }
 
 .subheader{
@@ -83,9 +94,10 @@ nav{
     margin: 0 auto;
 
     h3{
-        font-family: 'Copperplate Gothic Bold', sans-serif;
-        font-weight: bold;
-        font-size: 50px;
+        font-family: $header_font, serif;
+
+
+        font-size: 56px;
         color: $color_sears;
         width: 100%;
         margin: 0 0 10px 0;
@@ -119,7 +131,7 @@ nav{
     border-radius: 7px;
     box-shadow: 1px 1px 2px $color_clouds;
     text-align: center;
-    padding: 30px 10px 30px 10px;
+    padding: 30px 5px 30px 5px;
     margin: 50px auto;
     display: block;
     height: 100%;
@@ -127,9 +139,10 @@ nav{
 
 
 
+
 }
 
-label{
+label[type="text"], label[type="password"]{
 
     display: none;
     text-align: right;
@@ -139,9 +152,9 @@ label{
 
 }
 
-input[type="text"], input[type="password"]{
+input[type="text"], input[type="password"], {
 
-    clear: both;
+
     height: 40px;
     width: 300px;
     // padding: 5px;
@@ -151,12 +164,24 @@ input[type="text"], input[type="password"]{
     border-radius: 3px;
     text-align: center;
     color: $color_sears;
+    font-family: $body_font, serif;
 
-    &:focus{
-        border: 3px solid $color_ocean;
-    }
+        // border: 2px solid $color_ocean;
+
 }
 
+
+.session_remember_me{
+    font-size: 14px;
+}
+
+.input_pass{
+    border: 2px solid $color_ocean;
+}
+
+.inout_fail{
+    border: 2px solid $color_red;
+}
 .btn{
 
     width: 300px;
@@ -166,12 +191,15 @@ input[type="text"], input[type="password"]{
     background: $color_ocean;
     cursor: pointer;
 
-    font-size: 16px;
+    font-size: 17px;
     color: white;
     border: 1px solid $color_ocean;
 
-    padding: 5px;
+
     margin-top: 10px;
+    font-family: $body_font, serif;
+    font-weight: bold;
+
     &:hover{
         background: #327787;
     }
@@ -211,24 +239,44 @@ input[type="text"], input[type="password"]{
 
 
 .userinfo{
-    width: 500px;
+
     margin: 0 auto;
     text-align: center;
     font-size: 20px;
     line-height: 26px;
+    margin: 20px 0;
 }
 
 .gravatar{
-    border-radius: 1000px;
-    width: 150px;
-    margin-left: 85px;
+    border-radius: 100px;
+
     margin-top: 10px;
 }
 
 .forget{
     text-align: right;
-    padding-right:79px;
-    padding-top: 2px;
+    padding-right:82px;
+    padding-top: 5px;
     padding-bottom: 10px;
     font-size: 14px;
 }
+
+.terms{
+    font-size: 12px;
+    width: 300px;
+    text-align: center;
+    margin: 0 auto;
+    line-height: 14px;
+}
+
+// .password{
+//     position:  relative;
+
+// }
+
+// .forgot_pass{
+//         position: absolute;
+//         top: 500px;
+//         right: 60px;
+// }
+

@@ -9,26 +9,28 @@
         <p>So many memories, but so easy to forget.</p> -->
         <p class='sellpoint'>Hey there, welcome back.</p>
         <!-- <p>Sign up now to relive your memories of Chicago through photography.</p> -->
+    </div>
+
+        <%= form_for(:session, url: sessions_path ) do |f| %>
 
 
- <%= form_for(:session, url: sessions_path ) do |f| %>
+      <%= f.text_field :email, placeholder: "Email" %>
+      <%= f.password_field :password, placeholder: 'Password' %>
 
 
+      <p><%= f.check_box :remember_me %>
+      <label for="session_remember_me" class="session_remember_me">Keep me logged in</label></p>
 
+ <!--        <p><input id="sp_checkbox" name="sp_checkbox" type="checkbox" value="1"  class="forgot_pass">
+      <label for="sp_checkbox" class="forgot_pass">Show Password</label></p> -->
 
-      <p><%= f.label :email%>
-      <%= f.text_field :email, placeholder: "Email" %></p>
+      <%= f.submit "Log in", class: "btn btn-large btn-primary" %>
 
-
-
-
-      <p><%= f.label :password %>
-      <%= f.password_field :password, placeholder: 'Password' %></p>
-
-      <p><%= f.submit "Log in", class: "btn btn-large btn-primary" %></p>
     <% end %>
 
-          <p class= 'forget'>Forgot <%= link_to 'password', '#' %>?</p>
+          <p class= 'forget'><%= link_to 'Forgot your password?', 'password_resets/new' %></p>
 
 
-    <p class='footer'> New To HorschGallery.com?  If you love Chicago and enjoy browsing through beautiful photos then <%= link_to 'JOIN IN', 'signup' %></p>
+    <p class='footer'> New To HorschGallery.com?  If you love Chicago and enjoy browsing through beautiful photos then <%= link_to 'SIGN UP', '/signup' %></p>
+
+</div>
