@@ -11,7 +11,7 @@ GatewayForm::Application.routes.draw do
   match '/signup',  to: 'users#new',  via: 'get'
   match '/login', to: 'sessions#new', via: 'get'
   match '/logout', to: 'sessions#destroy', via: 'delete'
-  match '/forgot_password', to: 'sessions#show', via: 'get'
+  match '/forgot-password', to: 'password_resets#new', via: 'get'
 
   # get 'users/new' => 'users#new' , as: '/signup'
 

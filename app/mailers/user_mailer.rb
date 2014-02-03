@@ -4,19 +4,15 @@ class UserMailer < ActionMailer::Base
 
   def registration_confirmation(user)
     @user = user
-
     mail(to: "#{user.name} <#{user.email}>", subject: "HorschGallery Signup Confirmation")
   end
 
-  def send_forgotten_password(user)
-    @user = user
-    mail(to: "#{user.name} <#{user.email}>", subject: "HorschGallery.com - We have a new password for you")
 
-  end
 
   def password_reset(user)
     @user = user
-    mail :to => user.email, :subject => "Password Reset"
+    @url  =  'http://localhost:3000/forgot-password'
+    mail :to => user.email, :subject => "HorschGallery.com Password Reset"
   end
 
 end
