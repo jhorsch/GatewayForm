@@ -7,13 +7,15 @@ class PasswordResetsController < ApplicationController
 
 
         if user
-            user.send_password_reset
+            UserMailer.password_reset(user).deliver
             flash[:success]  = "An email has been sent with password reset instructions."
             redirect_to root_url
         else
             flash[:notice] = "We didn't recognize that email. Please try again."
             render 'new'
         end
+
+
   end
 
   def edit
