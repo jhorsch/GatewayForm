@@ -19,9 +19,9 @@ def create
    @user.password_confirmation = @user.password
     if @user.save
         sign_in @user
-        UserMailer.registration_confirmation(@user).deliver
+
         flash[:success] = "Are you ready to explore Chicago through photography?  Before you get started, please confirm your account.  An email was just sent."
-        redirect_to user_url(@user)
+          redirect_to user_url(@user)
 
      else
       render 'new'

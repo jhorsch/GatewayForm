@@ -7,7 +7,7 @@
         <p class='sellpoint'>Sign up to discuss & share your favorite memories of Chicago from our 30+ year photography collection.<br><br>
             We can't wait to show you this spectacular view of the city.</p>
         <!-- <p>Sign up now to relive your memories of Chicago through photography.</p> -->
-
+</div>
 
     <%= form_for(@user) do |f| %>
 
@@ -19,7 +19,7 @@
          <% end %>
 
 
-    <%= f.text_field :name, placeholder: 'Name'  %>
+    <%= f.text_field :name, placeholder: 'Name' , id: 'form-email' %>
 
         <% if @user.errors[:email].any? %>
     <span class='alert-row'>
@@ -57,14 +57,17 @@
 
     <%= f.password_field :password, placeholder: 'Password', id: 'pswd_fld'  %>
 
-    <!--   <p><input id="sp_checkbox" name="sp_checkbox" type="checkbox" value="1"  class="forgot_pass">
-      <label for="sp_checkbox" class="forgot_pass">Show Password</label></p> -->
+      <span class="show_password"><input  type="checkbox" name="show_password_checkbox"  id="show_password_checkbox" value="1"  >
+      <label for="show_password_checkbox" >Show Password</label></span>
 
-    <p class='show_password'><%= f.submit "Sign Up", class: "btn btn-large btn-primary" %></p>
-    <% end %>
+    <p><%= f.submit "Sign Up", class: "btn btn-large btn-primary" %></p>
+<% end %>
 
+<div>
 
-    <p class='footer'>Already have an account?  <%= link_to 'Log in', '/login' %></p>
+</div>
+
+<p class='footer'>Already have an account?  <%= link_to 'Log in', '/login' %></p>
 <p class='terms'>By clicking Sign Up below, you are agreeing to our <a href="#">Terms and Conditions</a> and <a href="#">Privacy Policy</a></p>
 
 

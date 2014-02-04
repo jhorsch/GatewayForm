@@ -1,4 +1,14 @@
 
+
+<div class='collect_info_container'>
+
+    <div class='subheader'>
+        <h3>HorschGallery</h3>
+        <p class='sellpoint'>Ok, great.  Now just enter a new password to reset.
+    </div>
+
+
+
 <%= form_for @user, :url => password_reset_path(params[:id]) do |f| %>
 
     <% if @user.errors.any? %>
@@ -22,3 +32,6 @@
     </div>
     <div class="actions"><%= f.submit "Update Password" %></div>
 <% end %>
+
+
+

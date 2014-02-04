@@ -141,15 +141,7 @@ nav{
 
 }
 
-label[type="text"], label[type="password"]{
 
-    display: none;
-    text-align: right;
-    width: 100px;
-    line-height: 40px;
-    height: 20px;
-
-}
 
 input[type="text"], input[type="password"], {
 
@@ -169,6 +161,9 @@ input[type="text"], input[type="password"], {
 
 }
 
+.show_password{
+    display: block;
+}
 
 .session_remember_me{
     font-size: 14px;
@@ -268,14 +263,13 @@ input[type="text"], input[type="password"], {
     line-height: 14px;
 }
 
-// .password{
-//     position:  relative;
 
-// }
+.js-form-error, {
+    color: $color_red;
+}
 
-// .forgot_pass{
-//         position: absolute;
-//         top: 500px;
-//         right: 60px;
-// }
+.js-form-field-error{
+        border: 2px solid $color_red;
+
+}
 

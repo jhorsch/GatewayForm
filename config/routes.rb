@@ -4,7 +4,7 @@ GatewayForm::Application.routes.draw do
 
   root "users#new"
 
-  resources :users
+  resources :users, except: [:new]
   resources :sessions, only: [:new, :create, :destroy, :show]
   resources :password_resets
 

@@ -23,9 +23,9 @@ class SessionsController < ApplicationController
 
     else
         if user then
-            flash[:notice] = "Your password didn't match.  Please try again"
+            flash.now[:notice] = "Your password didn't match.  Please try again"
         else
-            flash[:notice] = "We didn't recognize your email.  Please try again."
+            flash.now[:notice] = "We didn't recognize your email.  Please try again."
         end
         render 'new'
     end

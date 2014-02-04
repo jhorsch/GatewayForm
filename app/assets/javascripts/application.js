@@ -25,58 +25,73 @@ $(function(){
 
 
 //plugin not working
-$(function(){
-    $('.datepicker').pickadate();
-});
-
-$(function(){
-    $('#pswd_fld').blur(function(){
-        var password_length = $(this).val().length;
-        if (password_length <= 6)
-        {
-            $(this).addClass('input_fail');
-        }
-        else
-        {
-            $(this).addClass('input_sucess');
-        }
-
-    });
-});
-
-
+// $(function(){
+//     $('.datepicker').pickadate();
+// });
 
 // $(function(){
-//     $('#sp_checkbox').change(function(){
-
-//         var prev = $(this).prev();
-//         var value = prev.val();
-//         var type = prev.attr('type');
-
-//         var name = prev.attr('name');
-//         var id = prev.attr('id');
-//         var classA = prev.attr('class');
-
-//         var new_type = (type == 'password') ? 'text' : 'password';
-
-//         prev.remove();
-//         $(this).before('<input type="' + new_type + '" value="'  + value + '" name="'  + name + '" id="'  + id + '" class="'  + classA + '" />');
+//     $('#pswd_fld').blur(function(){
+//         var password_length = $(this).val().length;
+//         if (password_length <= 6)
+//         {
+//             $(this).addClass('input_fail');
+//         }
+//         else
+//         {
+//             $(this).addClass('input_sucess');
+//         }
 
 //     });
-
-//     $('.forgot_pass').hide();
-
-//     $('.password').focus(function(){
-//         $('.forgot_pass').toggle();
-//     })
-
-//     //  $('.password').blur(function(){
-//     //     $('.forgot_pass').hide();
-//     // })
-
 // });
 
 
+
+$(function(){
+    $('#show_password_checkbox').change(function(){
+
+        var prev = $('#pswd_fld');
+         var value = prev.val();  //get value from previous element
+
+            if (value.length > 1) {
+
+                var type = prev.attr('type');  //get attribute type from prev
+                var name = prev.attr('name');  //get attr name
+                var id = prev.attr('id');  //get id
+
+                var new_type = (type == 'password') ? 'text' : 'password';
+                prev.remove();
+
+                $('#user_dob').after('<input type="' + new_type + '" value="'  + value + '" name="'  + name + '" id="'  + id + '" />');
+
+            }
+
+    }
+
+    $('#pswd_fld').blur(function(){
+        var pass_length = $(this).val().length
+        var mynum = 3
+
+           var test = $('.js-form-error').select()
+        console.log(typeof(test))
+
+        if ((pass_length < 6) && (3==3)) {
+            $('#pswd_fld').addClass('js-form-field-error')
+            $('#pswd_fld').before('<p class="js-form-error">Password must be greater than 6 characters</p>')
+            // var check = attr($('.js-form-error'))
+            // console.log(check) //CHECK TO SEE IF THE CLASS EXISTS??
+        }
+        else{
+            $('#pswd_fld').removeClass('js-form-field-error')
+           $ ('.js-form-error').remove()
+        }
+
+    })
+
+
+
+
+
+});
 
 
 

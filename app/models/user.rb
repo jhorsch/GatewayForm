@@ -1,28 +1,32 @@
 class User < ActiveRecord::Base
+
+   has_secure_password
+
     before_save { self.email = email.downcase }
     before_create :create_remember_token
+    before_create :create_remember_token   #before create is a callback  and then run method
+    after_create  :registration_confirmation
 
-    before_create :create_remember_token  #before creating a user run remember token method reference
+    def registration_confirmation
+      UserMailer.registration_confirmation(self).deliver
+    end
 
 
     validates :name, presence: true, length: {maximum: 50}
+    # validates :name, presence: true, message: "Dont leave blank"
+
 
     VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
     validates :email, presence: true, format:{with: VALID_EMAIL_REGEX }, uniqueness: true
 
-
-
-    has_secure_password
     validates :password, length:{minimum: 6}
-
-    # validates :dob, presence: true  //why wont it validate
+    validates :dob, presence: true
     validates :user_name, presence: true, uniqueness: true
 
 
     def send_password_reset
       generate_token(:password_reset_token)
       self.password_reset_sent_at = Time.zone.now
-
       UserMailer.password_reset(self).deliver
     end
 
